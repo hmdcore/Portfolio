@@ -1,10 +1,13 @@
-/* --- GLOBAL --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #030712; 
     color: #f9fafb;
     line-height: 24px;
     margin: 0;
-    font-family: sans-serif;
+    font-family: system-ui, -apple-system, sans-serif;
 }
 
 .container {
@@ -18,7 +21,6 @@ a {
     text-decoration: none;
 }
 
-/* --- REUSABLE COMPONENTS --- */
 .section-tag {
     background-color: #374151;
     color: #d1d5db;
@@ -36,7 +38,6 @@ a {
     margin-bottom: 40px;
 }
 
-/* Image Placeholders */
 .image-placeholder {
     background-color: #374151;
     display: flex;
@@ -54,9 +55,15 @@ a {
     align-items: center;
     justify-content: center;
     font-size: 12px;
+    overflow: hidden;
 }
 
-/* --- NAVIGATION --- */
+.icon-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -86,13 +93,13 @@ a {
     font-weight: bold;
     cursor: pointer;
     transition: background 0.3s ease;
+    display: inline-block;
 }
 
 .btn-download:hover {
     background-color: #d1d5db;
 }
 
-/* --- HERO SECTION --- */
 .hero {
     display: flex;
     justify-content: space-between;
@@ -108,6 +115,7 @@ a {
 .hero-text h1 {
     font-size: 48px;
     margin-bottom: 16px;
+    margin-top: 0;
 }
 
 .hero-text p {
@@ -135,7 +143,6 @@ a {
     margin-top: 24px;
 }
 
-/* Hero Image Specifics */
 .hero-image-wrapper {
     position: relative;
     width: 320px;
@@ -173,7 +180,6 @@ a {
     display: block;
 }
 
-/* --- ABOUT SECTION --- */
 .about {
     background-color: #111827;
     text-align: center;
@@ -213,6 +219,7 @@ a {
 .about-text h2 {
     font-size: 32px;
     margin-bottom: 24px;
+    margin-top: 0;
 }
 
 .about-text p {
@@ -230,7 +237,6 @@ a {
     margin-bottom: 8px;
 }
 
-/* --- SKILLS SECTION --- */
 .skills {
     text-align: center;
 }
@@ -251,7 +257,6 @@ a {
     color: #9ca3af;
 }
 
-/* --- EXPERIENCE SECTION --- */
 .experience {
     text-align: center;
     background-color: #111827;
@@ -275,6 +280,10 @@ a {
     color: #10b981;
 }
 
+.card-logo h3 {
+    margin: 0;
+}
+
 .card-details {
     flex: 1;
     padding: 0 20px;
@@ -283,6 +292,7 @@ a {
 .card-details h3 {
     font-size: 20px;
     margin-bottom: 16px;
+    margin-top: 0;
 }
 
 .card-details ul {
@@ -300,7 +310,10 @@ a {
     color: #9ca3af;
 }
 
-/* --- WORK/PROJECTS SECTION --- */
+.card-date p {
+    margin: 0;
+}
+
 .work {
     text-align: center;
 }
@@ -317,7 +330,6 @@ a {
 .project-card.reversed {
     flex-direction: row-reverse;
 }
-
 .project-image {
     flex: 1;
     padding: 40px;
@@ -325,6 +337,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 0; 
 }
 
 .project-pic {
@@ -332,20 +345,23 @@ a {
     height: 300px;
     border-radius: 8px;
     background-color: #4b5563;
+    overflow: hidden; 
+    display: block; 
 }
 
-.project-info {
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.project-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: top;
+    display: block; 
 }
 
 .project-info h3 {
     font-size: 24px;
     margin-bottom: 16px;
     color: #f9fafb;
+    margin-top: 0;
 }
 
 .project-info p {
@@ -368,7 +384,6 @@ a {
     font-size: 14px;
 }
 
-/* --- TESTIMONIALS SECTION --- */
 .testimonials {
     text-align: center;
     background-color: #111827;
@@ -407,6 +422,7 @@ a {
     font-size: 18px;
     margin-bottom: 4px;
     color: #f9fafb;
+    margin-top: 0;
 }
 
 .testimonial-card .title {
@@ -414,7 +430,6 @@ a {
     margin-bottom: 0px;
 }
 
-/* --- FOOTER / CONTACT --- */
 .footer {
     text-align: center;
 }
@@ -433,8 +448,10 @@ a {
 .contact-email, .contact-phone {
     font-size: 32px;
     margin-bottom: 16px;
+    margin-top: 0;
     font-weight: bold;
     color: #f9fafb;
+    word-break: break-all;
 }
 
 .social-prompt {
@@ -445,4 +462,69 @@ a {
 .center-icons {
     justify-content: center;
     margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-list {
+        display: inline-block;
+        text-align: left;
+    }
+
+    .card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .card-details {
+        padding: 0;
+    }
+    
+    .card-date {
+        text-align: center;
+    }
+
+    .project-card, .project-card.reversed {
+        flex-direction: column;
+    }
+
+    .project-image {
+        padding: 20px;
+    }
+
+    .project-info {
+        padding: 20px;
+    }
+
+    .contact-email {
+        font-size: 24px;
+    }
 }
