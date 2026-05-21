@@ -1,55 +1,448 @@
-*{
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family:'Montserrat', sans-serif;
-}
-html{
-    scroll-behavior: smooth;
-}
+/* --- GLOBAL --- */
 body {
-    background-color: #0b1120;
-    color: white;
+    background-color: #030712; 
+    color: #f9fafb;
+    line-height: 24px;
+    margin: 0;
+    font-family: sans-serif;
 }
 
-header {
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+a {
+    color: #f9fafb;
+    text-decoration: none;
+}
+
+/* --- REUSABLE COMPONENTS --- */
+.section-tag {
+    background-color: #374151;
+    color: #d1d5db;
+    padding: 4px 16px;
+    border-radius: 12px;
+    display: inline-block;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: #9ca3af;
+    margin-bottom: 40px;
+}
+
+/* Image Placeholders */
+.image-placeholder {
+    background-color: #374151;
     display: flex;
-    justify-content: space-between; 
-    align-items: center;           
-    padding: 20px 5%;
-    background-image: linear-gradient(rgba(11, 17, 32, 0.6), rgba(11, 17, 32, 0.6)), url('./assets/jeremy-bishop-G9i_plbfDgk-unsplash.jpg');
-     background-size: cover;
-    background-position: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
 }
 
-.logo {
-    width: 120px; 
-    height: auto;
-}
-
-nav>div {
+.icon-placeholder {
+    width: 40px;
+    height: 40px;
+    background-color: #374151;
+    border-radius: 8px;
     display: flex;
-    gap: 30px; 
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+/* --- NAVIGATION --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #030712;
+    border-bottom: 1px solid #1f2937;
+}
+
+.navbar .logo img {
+    height: 40px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.btn-download {
+    background-color: #f9fafb;
+    color: #030712;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: #d1d5db;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.hero-text p {
+    color: #9ca3af;
+    margin-bottom: 24px;
+}
+
+.location-status p {
+    margin-bottom: 8px;
+    color: #d1d5db;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #10b981;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+/* Hero Image Specifics */
+.hero-image-wrapper {
+    position: relative;
+    width: 320px;
+    height: 380px;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-nav>div>a {
-    text-decoration: none; 
-    color: white;            
-}
-nav>div>a>h4 {
-    transition: 0.4s; 
-}
-nav>div>a:hover>h4 {
-    color: #3bb4f2;       
-}
-#home{
-    background-image: url(./assets/ales-nesetril-Im7lZjxeLhg-unsplash.jpg);
-    background-position:center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-
+.image-bg-deco {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 280px;
+    height: 320px;
+    background-color: #1f2937;
+    z-index: 1;
 }
 
+.profile-image-container {
+    background-color: #000000;
+    padding: 8px;
+    position: relative;
+    z-index: 2;
+    width: 280px;
+    height: 320px;
+    border: 1px solid #1f2937;
+    overflow: hidden;
+}
+
+.main-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- ABOUT SECTION --- */
+.about {
+    background-color: #111827;
+    text-align: center;
+}
+
+.about-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+    text-align: left;
+    margin-top: 40px;
+}
+
+.about-image {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.about-pic {
+    width: 350px;
+    height: 450px;
+    background-color: #000000;
+    border: 1px solid #374151;
+    overflow: hidden;
+}
+
+.about-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 32px;
+    margin-bottom: 24px;
+}
+
+.about-text p {
+    color: #9ca3af;
+    margin-bottom: 16px;
+}
+
+.about-list {
+    color: #9ca3af;
+    margin-left: 20px;
+    margin-top: 16px;
+}
+
+.about-list li {
+    margin-bottom: 8px;
+}
+
+/* --- SKILLS SECTION --- */
+.skills {
+    text-align: center;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: #9ca3af;
+}
+
+/* --- EXPERIENCE SECTION --- */
+.experience {
+    text-align: center;
+    background-color: #111827;
+}
+
+.card {
+    background-color: #1f2937;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-logo {
+    width: 150px;
+    color: #10b981;
+}
+
+.card-details {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.card-details h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.card-details ul {
+    color: #9ca3af;
+    margin-left: 20px;
+}
+
+.card-details li {
+    margin-bottom: 8px;
+}
+
+.card-date {
+    width: 150px;
+    text-align: right;
+    color: #9ca3af;
+}
+
+/* --- WORK/PROJECTS SECTION --- */
+.work {
+    text-align: center;
+}
+
+.project-card {
+    display: flex;
+    background-color: #1f2937;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.project-card.reversed {
+    flex-direction: row-reverse;
+}
+
+.project-image {
+    flex: 1;
+    padding: 40px;
+    background-color: #374151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-pic {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    background-color: #4b5563;
+}
+
+.project-info {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-info h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: #f9fafb;
+}
+
+.project-info p {
+    color: #9ca3af;
+    margin-bottom: 24px;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.tech-tag {
+    background-color: #374151;
+    color: #d1d5db;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+}
+
+/* --- TESTIMONIALS SECTION --- */
+.testimonials {
+    text-align: center;
+    background-color: #111827;
+}
+
+.testimonials-grid {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    background-color: #1f2937;
+    padding: 30px;
+    border-radius: 12px;
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-pic {
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.testimonial-card p {
+    color: #9ca3af;
+    font-style: normal;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.testimonial-card h4 {
+    font-size: 18px;
+    margin-bottom: 4px;
+    color: #f9fafb;
+}
+
+.testimonial-card .title {
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+/* --- FOOTER / CONTACT --- */
+.footer {
+    text-align: center;
+}
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-content p {
+    color: #9ca3af;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.contact-email, .contact-phone {
+    font-size: 32px;
+    margin-bottom: 16px;
+    font-weight: bold;
+    color: #f9fafb;
+}
+
+.social-prompt {
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+.center-icons {
+    justify-content: center;
+    margin-top: 16px;
+}
